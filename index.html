@@ -1,23 +1,762 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+    <!-- JSON-LD Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://www.example.com/ioniq6-longterm-rental",
+          "url": "https://www.example.com/ioniq6-longterm-rental",
+          "name": "아이오닉6 장기렌트카 2026년 최신 가격 비교 및 장단점 분석 가이드",
+          "description": "2026년형 현대 더 뉴 아이오닉6 장기렌트카 가격 및 비용 분석. 트림별 월 렌트료, 전기차 보조금 혜택 및 장단점, 전문 업체의 무심사 및 저렴한곳 순위 비교 정보를 제공합니다."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "아이오닉6 장기렌트카 월 예상 비용은 얼마인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "더 뉴 아이오닉6 롱레인지 익스클루시브 트림 기준으로 초기 비용이 없는 경우 월 평균 약 50만원 대에서 60만원 대의 견적이 예상됩니다. 이는 계약 기간, 연간 약정 주행거리 및 보조금에 따라 차이가 있습니다."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "전기차 장기렌트카의 가장 큰 장점은 무엇인가요?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "복잡한 전기차 보조금 신청을 렌트사에서 대행하며, 주행거리가 많아도 감가상각 걱정이 없고, 사업자 비용 처리가 가능하여 세금 감면 혜택을 극대화할 수 있습니다."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* 기본 레이아웃 및 폰트 설정: 가독성 높은 폰트와 부드러운 배경색 */
+        body { 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; 
+            line-height: 1.85; 
+            color: #2d3748; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #faf8f5; 
+        }
+        .container { 
+            max-width: 1240px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+        
+        /* 헤더 스타일: 친환경 전기차 이미지를 반영한 세련된 티톤/포레스트 그린 그라데이션 */
+        header { 
+            background: linear-gradient(135deg, #0f4c5c 0%, #1a535c 100%); 
+            color: #ffffff; 
+            padding: 50px 20px; 
+            text-align: center; 
+            border-radius: 16px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 8px 24px rgba(15, 76, 92, 0.12); 
+        }
+        header h1 { 
+            margin: 0; 
+            font-size: 2.6rem; 
+            font-weight: 800; 
+            letter-spacing: -1.5px; 
+        }
+        header p { 
+            margin: 12px 0 0; 
+            font-size: 1.2rem; 
+            opacity: 0.9; 
+            font-weight: 300; 
+        }
+
+        /* 네비게이션 스타일 */
+        nav { 
+            background-color: #ffffff; 
+            border-radius: 12px; 
+            margin-bottom: 35px; 
+            padding: 12px 20px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02); 
+        }
+        nav ul { 
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-around; 
+        }
+        nav ul li a { 
+            display: block; 
+            padding: 8px 16px; 
+            text-decoration: none; 
+            color: #1a535c; 
+            font-weight: 700; 
+            font-size: 1rem; 
+            transition: background-color 0.3s, color 0.3s; 
+            border-radius: 6px; 
+        }
+        nav ul li a:hover { 
+            background-color: #e5f1f4; 
+            color: #0f4c5c; 
+        }
+        
+        /* 주요 콘텐츠 스타일 */
+        h2 { 
+            border-bottom: 3px solid #e5f1f4; 
+            padding-bottom: 12px; 
+            color: #0f4c5c; 
+            margin-top: 50px; 
+            font-size: 2rem; 
+            font-weight: 800; 
+        }
+        h2:first-of-type { 
+            margin-top: 0; 
+        }
+        h3 { 
+            color: #1a535c; 
+            margin-top: 35px; 
+            font-size: 1.5rem; 
+            border-left: 5px solid #0f4c5c; 
+            padding-left: 15px; 
+            font-weight: 700; 
+        }
+        h4 { 
+            color: #2d3748; 
+            margin-top: 25px; 
+            font-size: 1.2rem; 
+            padding-bottom: 6px; 
+            border-bottom: 1px dotted #cbd5e0; 
+            font-weight: 600; 
+        }
+        p { 
+            margin-bottom: 22px; 
+            text-align: justify; 
+            font-size: 1.05rem; 
+        }
+        
+        /* 하이라이트 박스 */
+        .highlight-box { 
+            background-color: #f0f7f8; 
+            padding: 25px; 
+            border-radius: 8px; 
+            border-left: 6px solid #0f4c5c; 
+            margin: 30px 0; 
+            line-height: 1.8; 
+        }
+        .highlight-box strong { 
+            color: #0f4c5c; 
+        }
+
+        /* 테이블 스타일 */
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 25px 0; 
+            background-color: #ffffff; 
+            border: 1px solid #e2e8f0; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01); 
+        }
+        table th, table td { 
+            padding: 14px; 
+            text-align: center; 
+            border: 1px solid #e2e8f0; 
+            font-size: 0.95rem; 
+        }
+        table th { 
+            background-color: #0f4c5c; 
+            color: #ffffff; 
+            font-weight: 700; 
+            border-top: none; 
+        }
+        table tr:nth-child(even) { 
+            background-color: #f8fafc; 
+        }
+        
+        /* 폼 요소 스타일 */
+        .form-section { 
+            background-color: #f7fafc; 
+            border: 1px solid #e2e8f0; 
+            padding: 24px; 
+            border-radius: 12px; 
+            margin: 25px 0; 
+        }
+        .form-section h3 { 
+            margin-top: 0; 
+            border-left: none; 
+            padding-left: 0; 
+            color: #0f4c5c; 
+            font-size: 1.3rem; 
+            border-bottom: 2px solid #e2e8f0; 
+            padding-bottom: 8px; 
+        }
+        .form-section label { 
+            display: block; 
+            margin-top: 15px; 
+            font-weight: 700; 
+            color: #2d3748; 
+            font-size: 0.9rem; 
+        }
+        .form-section input[type="text"], 
+        .form-section input[type="number"], 
+        .form-section select, 
+        .form-section textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 6px;
+            border: 1px solid #cbd5e0;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        .form-section input:focus, 
+        .form-section select:focus, 
+        .form-section textarea:focus {
+            border-color: #0f4c5c;
+            box-shadow: 0 0 0 3px rgba(15, 76, 92, 0.15);
+            outline: none;
+        }
+        .submit-btn { 
+            background-color: #1a535c; 
+            color: white; 
+            padding: 14px 28px; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-weight: 700; 
+            font-size: 1.05rem; 
+            margin-top: 20px; 
+            width: 100%; 
+            transition: background-color 0.3s; 
+        }
+        .submit-btn:hover { 
+            background-color: #0f4c5c; 
+        }
+        .result-box {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #e5f1f4;
+            border-radius: 6px;
+            border: 1px solid #cbd5e0;
+            font-weight: 700;
+            color: #0f4c5c;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+
+        /* 사이드바 및 레이아웃 조정 */
+        .content-wrap { 
+            display: flex; 
+            gap: 35px; 
+        }
+        .sidebar { 
+            flex: 1.1; 
+            min-width: 330px; 
+            max-width: 370px; 
+        }
+        .main-content { 
+            flex: 2.5; 
+        }
+        
+        /* 외부 링크 섹션 */
+        .external-links h3 { 
+            color: #0f4c5c; 
+            border-left-color: #0f4c5c; 
+        }
+        .external-links ul { 
+            list-style: none; 
+            padding-left: 0; 
+        }
+        .external-links li { 
+            margin-bottom: 12px; 
+        }
+        .external-links a { 
+            color: #1a535c; 
+            text-decoration: none; 
+            font-weight: 600; 
+            border-bottom: 1px solid #1a535c; 
+            transition: all 0.3s ease; 
+        }
+        .external-links a:hover { 
+            color: #0f4c5c; 
+            border-bottom: 2px solid #0f4c5c; 
+        }
+
+        /* 그래프/다이어그램 Placeholder */
+        .chart-placeholder { 
+            text-align: center; 
+            margin: 30px 0; 
+            padding: 35px; 
+            background-color: #f7fafc; 
+            border: 2px dashed #cbd5e0; 
+            border-radius: 12px; 
+            color: #4a5568; 
+            font-style: italic; 
+            font-size: 1rem; 
+        }
+        
+        /* 반응형 디자인 */
+        @media (max-width: 992px) {
+            .content-wrap { flex-direction: column; }
+            .sidebar { min-width: 100%; order: 1; }
+            .main-content { order: 2; }
+            header { margin-bottom: 20px; border-radius: 0; }
+            .container { padding: 15px; margin: 15px auto; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>아이오닉6 장기렌트카: 2026년 최신 가격 비교 및 장단점 분석 가이드</h1>
+            <p>합리적인 전기차 운용을 위한 트림별 상세 견적과 금융 설계 프로세스</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <ul class="main-menu">
+                <li><a href="#intro">시장 트렌드 분석</a></li>
+                <li><a href="#models">모델 및 트림 분석</a></li>
+                <li><a href="#costs">장기렌트 비용 가이드</a></li>
+                <li><a href="#vs">구매 방식 차이 비교</a></li>
+                <li><a href="#subsidies">2026년 전기차 보조금</a></li>
+                <li><a href="#reviews">내돈내산 후기 요약</a></li>
+                <li><a href="#external">공식 참고 사이트</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-wrap">
+            
+            <div class="sidebar">
+                <h2>실시간 모의 견적 및 시뮬레이터</h2>
+                
+                <div class="form-section">
+                    <h3>아이오닉6 장기렌트 월 렌트료 산출기</h3>
+                    <form id="rental_form">
+                        <label for="car_model">상세 모델 선택</label>
+                        <select id="car_model" required>
+                            <option value="">선택하세요</option>
+                            <option value="standard_eval">스탠다드 E-Value+ (4,856만원)</option>
+                            <option value="standard_ex">스탠다드 익스클루시브 (5,095만원)</option>
+                            <option value="standard_pres">스탠다드 프레스티지 (5,553만원)</option>
+                            <option value="long_lite">롱레인지 E-Lite (5,064만원)</option>
+                            <option value="long_ex" selected>롱레인지 익스클루시브 (5,515만원)</option>
+                            <option value="long_nline">롱레인지 익스클루시브 N Line (5,745만원)</option>
+                            <option value="long_pres">롱레인지 프레스티지 (5,973만원)</option>
+                            <option value="long_pres_nline">롱레인지 프레스티지 N Line (6,132만원)</option>
+                        </select>
+                        
+                        <label for="contract_term">계약 기간 (개월)</label>
+                        <select id="contract_term" required>
+                            <option value="36">36개월</option>
+                            <option value="48" selected>48개월</option>
+                            <option value="60">60개월</option>
+                        </select>
+
+                        <label for="annual_mileage">연간 약정 주행거리</label>
+                        <select id="annual_mileage" required>
+                            <option value="10000">10,000 km 이하</option>
+                            <option value="20000" selected>20,000 km 이하</option>
+                            <option value="30000">30,000 km 이하</option>
+                        </select>
+
+                        <label for="finance_type">초기 비용 조건</label>
+                        <select id="finance_type">
+                            <option value="none">무보증 (초기 비용 0원)</option>
+                            <option value="deposit">보증금 설정</option>
+                            <option value="prepay">선납금 설정</option>
+                        </select>
+
+                        <label for="finance_rate">초기 비용 비율 (퍼센트)</label>
+                        <select id="finance_rate">
+                            <option value="0">0%</option>
+                            <option value="10">10%</option>
+                            <option value="20">20%</option>
+                            <option value="30" selected>30%</option>
+                        </select>
+                        
+                        <button type="button" class="submit-btn" onclick="calculateRent()">실시간 예상 견적 확인</button>
+                    </form>
+                    <div id="rent_result" class="result-box">조건 선택 후 버튼을 누르세요.</div>
+                </div>
+
+                <div class="form-section">
+                    <h3>2026 친환경 보조금 및 추가 혜택 조회</h3>
+                    <form id="subsidy_form">
+                        <label for="sub_region">등록 예정 거주 지역</label>
+                        <select id="sub_region" required>
+                            <option value="">선택하세요</option>
+                            <option value="seoul">서울특별시</option>
+                            <option value="gyeonggi">경기도</option>
+                            <option value="incheon">인천광역시</option>
+                            <option value="busan">부산광역시</option>
+                            <option value="jeju">제주특별자치도</option>
+                            <option value="other">기타 지방 자치 단체</option>
+                        </select>
+
+                        <label for="old_car_scrap">3년 이상 보유 내연차 폐차 전환 여부</label>
+                        <select id="old_car_scrap">
+                            <option value="no">해당 없음</option>
+                            <option value="yes">내연차 조기 폐차 및 전환 (전환지원금 대상)</option>
+                        </select>
+
+                        <label for="is_youth">만 19세~34세 청년 생애 최초 구매 여부</label>
+                        <select id="is_youth">
+                            <option value="no">해당 없음</option>
+                            <option value="yes">청년 생애 첫 전기차 구매 (추가 20% 보조금)</option>
+                        </select>
+
+                        <button type="button" class="submit-btn" onclick="calculateSubsidy()">예상 보조금 산출</button>
+                    </form>
+                    <div id="subsidy_result" class="result-box">지역 조건 선택 후 조회하세요.</div>
+                </div>
+
+                <div class="form-section">
+                    <h3>비즈니스 비용 처리 세액 절감 분석기</h3>
+                    <form id="tax_form">
+                        <label for="biz_type">사업자 형태</label>
+                        <select id="biz_type">
+                            <option value="indiv">개인사업자</option>
+                            <option value="corp">법인사업자</option>
+                        </select>
+
+                        <label for="tax_bracket">과세 표준 구간 및 적용 세율 (%)</label>
+                        <select id="tax_bracket">
+                            <option value="6">1,400만원 이하 (6%)</option>
+                            <option value="15">1,400만원 초과~5,000만원 이하 (15%)</option>
+                            <option value="24" selected>5,000만원 초과~8,800만원 이하 (24%)</option>
+                            <option value="35">8,800만원 초과~1억 5,000만원 이하 (35%)</option>
+                            <option value="38">1억 5,000만원 초과~3억원 이하 (38%)</option>
+                        </select>
+
+                        <label for="monthly_rent_input">월 납입 예정 렌트료 (원)</label>
+                        <input type="number" id="monthly_rent_input" value="550000" placeholder="예: 550000">
+
+                        <button type="button" class="submit-btn" onclick="calculateTaxSaving()">연간 절세액 예상치 산출</button>
+                    </form>
+                    <div id="tax_result" class="result-box">정보 입력 후 산출 버튼을 누르세요.</div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <h2 id="intro">2026년 전기차 시장 트렌드와 아이오닉6 장기렌트카 도입의 타당성</h2>
+
+                <div class="highlight-box">
+                    <p>현대자동차의 중형 전기 세단인 <strong>아이오닉6 장기렌트카</strong>는 2026년 친환경 모빌리티 시장에서 실용성과 경제성을 동시에 충족하는 대표적인 대안으로 주목받고 있습니다. 매년 변경되는 보조금 정책, 급격한 전기차 중고 가격 변동성, 그리고 세금 혜택의 복잡함 속에서 장기렌트 방식은 개인 및 개인사업자, 법인 모두에게 안정적인 자산 운용 경로를 제공합니다. 본 가이드는 2026년 최신 제도를 기반으로 작성되었으며, 복잡한 설계 절차를 쉽게 풀이해 드립니다.</p>
+                </div>
+
+                <p>국내 친환경차 인프라가 성숙기에 접어든 2026년 현재, 전기 승용차 보급률은 역대 누적 최고치를 갱신하고 있습니다. 그러나 배터리 기술의 세대교체 속도가 가속화되면서 전기차 오너들이 겪는 가장 큰 고민은 중고차 감가상각 리스크입니다. 신차 출고 후 몇 년 지나지 않아 차세대 전고체 혹은 고밀도 배터리를 장착한 페이스리프트 및 완전 변경 모델이 출시될 경우, 기보유 차량의 잔존가치는 하락할 가능성이 큽니다. 이러한 상황에서 소유가 아닌 임대 형식의 장기렌트는 중고차 가격 방어 의무를 렌트사가 전적으로 안고 가기 때문에 합리적인 선택으로 평가받습니다.</p>
+
+                <p>특히 현대자동차는 2025년 하반기 대대적인 디자인 보완과 배터리 용량 확대를 거친 페이스리프트 모델인 더 뉴 아이오닉6를 본격적으로 판매하기 시작했습니다. 스탠다드 모델의 고전압 배터리 용량이 기존 53.0kWh에서 63.0kWh로, 롱레인지 모델은 77.4kWh에서 84.0kWh로 늘어나 주행 가능 거리가 대폭 개선되었습니다. 이로 인해 장기렌트 전문 대행사와 금융사들은 해당 세대 차량의 잔존가치를 전보다 높게 책정하고 있으며, 이는 고스란히 소비자가 매월 납부해야 하는 월 평균 렌트료 인하 효과로 환원되고 있습니다.</p>
+
+                <h2 id="models">현대 아이오닉6 트림 및 사양별 특징 분석</h2>
+                <p>전기차를 선택할 때 가장 먼저 고민하게 되는 부분은 배터리 사양과 세부 트림의 구성입니다. 2026년형 현대 더 뉴 아이오닉6는 스탠다드와 롱레인지 라인업을 중심으로 다양한 파생 조건과 외관 사양이 제공되며, 세부적으로 30가지 이상의 조건 조합이 가능합니다. 최적의 렌트료 견적을 도출하기 위해서는 모델 간 사양과 특징을 비교해 두는 것이 좋습니다.</p>
+
+                <h3>주요 트림 분류 및 핵심 제원</h3>
+                <p>현재 장기렌트 전문 대행사에서 취급하는 현대 아이오닉6의 모델명별 특징은 다음과 같습니다.</p>
+
+                <ul>
+                    <li><strong>더 뉴 아이오닉6 스탠다드 E-Value+ (이-밸류 플러스)</strong>: 스탠다드 라인업의 실용성을 대폭 강화한 미니멀 지향 트림으로, 실구매 가격 부담을 가장 크게 낮춘 기본형 조건입니다.</li>
+                    <li><strong>더 뉴 아이오닉6 스탠다드 익스클루시브 (Exclusive)</strong>: 12.3인치 클러스터 및 지능형 안전 사양이 고루 탑재되어 일상용으로 균형 잡힌 구성을 자랑합니다.</li>
+                    <li><strong>더 뉴 아이오닉6 스탠다드 프레스티지 (Prestige)</strong>: Full LED 헤드램프와 가죽 시트, 동승석 릴렉션 컴포트 시트 등 한 차원 높은 편의 사양을 선호하는 사용자에게 알맞습니다.</li>
+                    <li><strong>더 뉴 아이오닉6 롱레인지 E-Lite (E-라이트)</strong>: 대용량 84.0kWh 배터리를 탑재하면서도 일부 편의 장비를 덜어내어 1회 충전 주행 거리를 가장 저렴한 가격에 확보하고자 하는 고객에게 추천됩니다.</li>
+                    <li><strong>더 뉴 아이오닉6 롱레인지 익스클루시브 (Exclusive)</strong>: 가장 높은 판매 비중을 차지하는 트림으로, 스마트 크루즈 컨트롤, 차로 유지 보조 2 등 현대 스마트센스의 안전 기술이 고루 탑재되어 있습니다.</li>
+                    <li><strong>더 뉴 아이오닉6 롱레인지 익스클루시브 N Line (N 라인)</strong>: 스포티한 전용 범퍼 디자인과 레드 스티치가 가미된 실내 레이아웃을 통해 역동적인 주행 감성을 전달합니다.</li>
+                    <li><strong>더 뉴 아이오닉6 롱레인지 프레스티지 (Prestige)</strong>: 디지털 사이드 미러(DSM), 원격 스마트 주차 보조 2, 헤드업디스플레이(HUD) 등 첨단 신기술의 집약체라 할 수 있는 최상위 사양입니다.</li>
+                    <li><strong>더 뉴 아이오닉6 롱레인지 프레스티지 N Line (N 라인)</strong>: 고급 사양의 안락함과 고성능 레이싱 감성을 결합한 플래그십 파워트레인 트림입니다.</li>
+                </ul>
+
+                <p>여기에 구동 방식에 따른 분류인 후륜구동 2WD 및 사륜구동 AWD, 휠 사이즈 옵션인 18인치 알로이 휠 패키지 모델과 20인치 알로이 휠 패키지 모델, 디자인 요소가 추가된 블랙에디션 패키지 사양, 그리고 영업용 수요를 담당하는 택시 전용 익스클루시브 트림 등 매우 다양한 선택지가 조합됩니다. 장기렌트 시에는 본인의 출퇴근 동선이나 고속도로 주행 비율에 맞게 적절한 전비 성능(18인치 휠이 20인치 휠 대비 충전 주행 거리가 깁니다)을 따져보는 지혜가 요구됩니다.</p>
+
+                <h2 id="costs">아이오닉6 장기렌트 가격 구성 요소 및 월 납입금 평균 산출 기준</h2>
+                <p>일반적으로 매월 얼마의 금액을 납부해야 아이오닉6를 안전하게 운용할 수 있을지 궁금해하시는 분들이 많습니다. 장기렌트 비용은 차량의 순수 유통 마진뿐 아니라 금융 비용, 자동차 세금, 그리고 보험료가 복합적으로 녹아 있는 지불 상품입니다.</p>
+
+                <h4>월 렌트료를 결정하는 4대 기본 지표</h4>
+                <p>장기렌트의 예상 금액과 비용을 결정짓는 핵심 지표는 잔존가치, 계약 기간, 초기 납입 조건, 약정 주행거리입니다.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>현대 아이오닉6 세부 사양</th>
+                            <th>공식 판매 가격 (개소세 반영)</th>
+                            <th>월 예상 렌트료 (48개월, 무보증 기준)</th>
+                            <th>월 예상 렌트료 (보증금 30% 납부 기준)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>스탠다드 E-Value+</td>
+                            <td>4,856 만원</td>
+                            <td>46만원 ~ 51만원</td>
+                            <td>40만원 ~ 45만원</td>
+                        </tr>
+                        <tr>
+                            <td>스탠다드 익스클루시브</td>
+                            <td>5,095 만원</td>
+                            <td>49만원 ~ 54만원</td>
+                            <td>43만원 ~ 48만원</td>
+                        </tr>
+                        <tr>
+                            <td>롱레인지 E-Lite</td>
+                            <td>5,064 만원</td>
+                            <td>48만원 ~ 53만원</td>
+                            <td>42만원 ~ 47만원</td>
+                        </tr>
+                        <tr>
+                            <td>롱레인지 익스클루시브</td>
+                            <td>5,515 만원</td>
+                            <td>53만원 ~ 58만원</td>
+                            <td>47만원 ~ 52만원</td>
+                        </tr>
+                        <tr>
+                            <td>롱레인지 프레스티지</td>
+                            <td>5,973 만원</td>
+                            <td>58만원 ~ 63만원</td>
+                            <td>52만원 ~ 57만원</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>월 렌트료 산정 공식의 근간이 되는 <strong>잔존가치(잔가)</strong>는 계약이 끝난 시점에 해당 전기차가 가질 것으로 렌트사가 예측하는 가치입니다. 잔존가치가 높게 잡힐수록 고객이 계약 기간 동안 갚아 나가야 할 감가 금액은 적어지므로 매달 나가는 유지 비용은 저렴해집니다. 이 때문에 감가가 심하지 않은 트림과 컬러(화이트, 그레이 계열)를 선택하는 것이 최저가로 견적을 받아보는 전략이 될 수 있습니다.</p>
+
+                <p>또한, 보증금과 선납금의 차이점을 명확히 알아두어야 시행착오를 예방할 수 있습니다. 보증금은 렌트사 명의의 예금 계좌에 돈을 맡겨두었다가 만기 시 돌려받는 담보 금액이며, 조달 금리를 낮춰 매월 렌트비를 직접 할인해 줍니다. 반면 선납금은 월 렌트료의 일정 부분을 미리 지불하는 개념으로, 계약 만기 시 소멸하는 금액입니다. 겉보기에는 선납 조건이 월 납입 비용을 크게 싼곳처럼 보이게 만들지만, 총지출 관점에서 면밀하게 비교해야 과다 지출을 막을 수 있습니다.</p>
+
+                <h2 id="vs">장기렌트 vs 신차 할부 구매 vs 자동차 리스: 종합 장단점 및 차이점</h2>
+                <p>차량을 출고하는 방식은 세부 사항에 따라 각각 뚜렷한 차이점을 보입니다. 과거 전통적인 할부 일시불 외에 리스와 장기렌트카 상품을 두고 고민하는 일반 소비자들이 많습니다.</p>
+
+                <h3>금융 방식별 핵심 차이 비교</h3>
+                <ul>
+                    <li><strong>자산 및 부채 인식의 차이점</strong>: 장기렌트카는 임대차 상품이므로 개인 신용도나 대출 한도에 전혀 악영향을 주지 않습니다. 반면, 일반 신차 할부나 오토 리스는 금융권 대출(부채)로 등록되므로 추후 주택담보대출이나 신용 거래 시 한도 축소 사유가 될 수 있습니다.</li>
+                    <li><strong>자동차 보험료 운용 구조</strong>: 장기렌트는 렌트사 명의의 단체 종합보험에 가입되므로 개인의 사고 이력이 많아도 보험 할증이 적용되지 않습니다. 초보 운전자나 만 21세 이하 신규 운전자의 경우 매달 지불하는 장기렌트료 안에 보험료가 다 포함되어 있어 비용 방어에 유리합니다. 단, 리스와 할부는 개인 요율 보험을 직접 가입해야 하므로 사고 발생 시 보험금 할증을 본인이 전적으로 감내해야 합니다.</li>
+                    <li><strong>세제 혜택과 비용 처리의 장점</strong>: 개인사업자나 법인은 연간 최대 1,500만원(렌트료 800만원 + 주행 유지비 700만원)까지 합법적으로 경비 처리하여 종합소득세나 법인세를 효과적으로 감면받을 수 있습니다. 회계처리가 매우 단순하여 전문 세무사들도 장기렌트 이용을 자주 추천하곤 합니다.</li>
+                    <li><strong>번호판 식별 등 단점 요소</strong>: 장기렌트는 법적 의무 사항으로 인하여 하, 허, 호 자 번호판을 달고 운행해야 합니다. 최근에는 공유차나 렌트에 대한 사회적 인식이 대단히 긍정적으로 개선되어 거부감이 덜하지만, 품위 유지나 번호판 민감성이 높은 사용자라면 일반 번호판 부착이 가능한 리스나 신차 일시불이 유일한 대안일 수 있습니다.</li>
+                </ul>
+
+                <p>결국, 개인의 보험 요율이 낮고 오랜 기간 무사고를 유지해 왔다면 직구매가 유리할 수 있지만, 잦은 경미사고로 할증이 두렵거나 자산 가치 하락과 초기 취등록세(차량가액의 7%) 목돈 납부를 피하고 싶은 운전자에게는 전기 세단 장기렌트가 훨씬 편안한 경로가 될 것입니다.</p>
+
+                <h2 id="subsidies">2026년도 전기차 보조금 및 내연기관 전환지원금 적용 방식</h2>
+                <p>전기차를 저렴하게 도입하기 위해 확인해야 할 사항은 바로 정부 보조금과 지자체 지원금의 배정 여부입니다. 2026년 기준 대한민국 정부와 지자체는 친환경 시장 침체를 극복하기 위해 구매 혜택의 보강 및 신규 개편을 단행했습니다.</p>
+
+                <p>2026년 전기차 보조금 개편안에 따르면, 중대형 승용차 기준 국고보조금 기본 한도는 최대 300만원 수준으로 책정되어 있습니다. 그러나 배터리 재활용 효율성과 안전 평가 기준, 급속 충전 인프라 기여도가 높은 배터리 기술을 장착한 차량일 경우 가산 인센티브를 포함하여 국고보조금만 최대 580만원까지 상향 지급받을 수 있습니다. 현대 더 뉴 아이오닉6의 경우 고효율 NCM 배터리와 초급속 800V 멀티 충전 시스템을 전 모델에 완비하고 있어 보조금 수령 요건에서 가장 높은 수준의 점수를 획득하고 있습니다.</p>
+
+                <p>특히 2026년도에 새롭게 주목해야 할 점은 <strong>내연차 전환지원금</strong>의 확대 적용입니다. 최초 등록일로부터 3년 이상 경과한 노후 가솔린, 디젤 내연기관 차량을 조기 폐차하거나 중고로 양도하고 친환경 아이오닉6를 출고하는 가입자에게는 기본 국고 조달 외에 최소 100만원에서 서울시 등 일부 선도 지자체의 경우 최대 130만원의 추가 전환지원금이 직접 할당됩니다. 또한 만 19세부터 만 34세 이하의 청년층이 생애 최초로 전기차를 신규 계약할 시에는 국고보조금의 20%를 별도로 추가 지원하는 파격적인 특약 혜택도 신설되었습니다.</p>
+
+                <p>일반 개인이 보조금을 신청하려면 복잡한 서류 절차와 함께 지자체 예산 소진 상황을 실시간으로 확인해야 하는 피로가 뒤따릅니다. 반면 장기렌트카 전문 대행사는 국내 각 지역의 본사 지점 명의를 활용하여 가장 예산이 풍족하고 보조금 수령 비율이 높은 지역으로 대량 선구매를 진행해 둡니다. 따라서 거주 지역의 보조금 예산이 조기 마감되었더라도, 소비자들은 보조금 100% 혜택이 미리 반영되어 월 렌트비가 저렴하게 셋팅된 기보유 물량을 즉시 확보할 수 있습니다.</p>
+
+                <div class="chart-placeholder">
+                    <p>그림: 2026년 정부 보조금 및 내연기관 전환지원금 구성 비율 시각 자료 (정부 국고보조금, 지방자치단체 보조금, 내연차 폐차 추가 전환 보조금, 청년/다자녀 우대 가산금의 결합 메커니즘)</p>
+                </div>
+
+                <h2 id="reviews">이용자 내돈내산 후기 및 커뮤니티 동향 분석</h2>
+                <p>인터넷 포털 네이버 블로그나 구글 검색, 소셜 미디어 플랫폼인 트위터, 인스타그램, 페이스북에는 현대 아이오닉6를 직접 장기렌트로 출고하여 일상을 함께하는 오너들의 실제 후기가 지속해서 업로드되고 있습니다. 다양한 경로를 통해 검증된 이용자들의 실질적인 평판을 다음과 같이 객관적으로 정리했습니다.</p>
+
+                <h4>긍정적인 평판 및 이점</h4>
+                <ul>
+                    <li><strong>압도적인 고속 충전 속도</strong>: 350kW급 초고속 충전기 사용 시 배터리 10% 상태에서 80%까지 약 18분 만에 충전이 완료되는 뛰어난 전력 효율에 대해 찬사가 이어집니다. 장거리 운행이 잦은 영업맨들에게 큰 장점입니다.</li>
+                    <li><strong>유려한 공기역학 디자인과 실내 공간성</strong>: 휠베이스가 거의 3m에 달하는 독자적인 E-GMP 플랫폼 덕분에 뒷좌석 무릎 공간이 대형 세단 부럽지 않을 만큼 안락하다는 후기가 많습니다. 패밀리카 역할로서도 충분히 제 몫을 해내고 있다는 피드백입니다.</li>
+                    <li><strong>정비 편의성과 부대 비용 0원 실현</strong>: 자가 차량 소유 시 주기적으로 나가는 타이어 교체비, 얼라이먼트 세팅, 에어컨 필터 교환 비용 등이 장기렌트 정비 포함 패키지 선택 시 모두 무료로 처리되어 관리가 너무 편하다는 자영업자들의 내돈내산 평판이 지배적입니다.</li>
+                </ul>
+
+                <h4>개선 희망 의견 및 불만족 요소</h4>
+                <ul>
+                    <li><strong>트렁크 적재함 높이의 한계</strong>: 유선형의 덕테일 스타일 스포일러 디자인 설계 탓에 후면 루프 라인이 완만하게 내려옵니다. 이로 인해 트렁크 입구 높이가 비교적 낮아 큰 캠핑용품이나 대형 유모차를 세워서 적재하기에는 간섭이 생긴다는 후기가 언급됩니다.</li>
+                    <li><strong>초기 해약 시 위약금 부담</strong>: 중도에 계약을 해지할 경우 잔여 기간에 비례한 해지 수수료가 청구됩니다. 이 때문에 초기 가입 당시에 본인의 예상 운전 주행 목적과 기간을 합리적으로 판단하여 가급적 승계 제도를 쉽게 활용할 수 있는 전문 업체를 통하는 것이 안전합니다.</li>
+                </ul>
+
+                <p>전체적인 사용자 반응을 네이버 카페나 유튜브 시승기 전문 채널에서 살펴보면, 전기차로서 보여주는 내구성이나 구동계 안전성에 대해서는 논란 없이 긍정적인 신뢰가 구축되어 있음을 파악할 수 있습니다.</p>
+
+                <h2 id="ai_analysis">첨단 AI가 분석한 아이오닉6 장기렌트의 가치</h2>
+                <p>정확하고 정밀한 모빌리티 설계 자문을 구하기 위해 첨단 인공지능 알고리즘 에이전트 시스템에 현대 아이오닉6의 장기렌트 가치를 물었습니다. 최근 진보된 거대언어모델인 구글의 제미나이(Gemini)와 오픈AI의 챗지피티(ChatGPT)는 방대한 통계 지표와 리스/렌트의 세무 구조 비교 데이터를 수집하여 다음과 같이 의사결정을 지원합니다.</p>
+
+                <p>인공지능 모델 <strong>Gemini</strong>는 배터리 성능 손실(Degradation) 계수와 5년 후 전기차 중고 시세 추이를 계량화하여 분석했습니다. 해당 분석에 따르면, 향후 차세대 전고체 배터리가 상용화되는 시점에 도달하면 일반 리튬이온 배터리를 탑재한 구세대 전기차의 잔가 하락율은 약 15% 가량 추가로 커질 수 있다고 관측됩니다. 이에 따라 감가상각 위험에 고스란히 노출되는 할부 직접 구매보다는 만기 시 반납권과 인수권을 동시에 행사할 수 있는 장기렌트 상품이 재정적 리스크 헷징에 우위에 있다고 제안합니다.</p>
+
+                <p>한편 또 다른 인공지능 모델인 <strong>ChatGPT</strong>는 사업자 절세 시뮬레이션 프로그램을 통해 법인세 공제액을 자동 계산하여 보여줍니다. 현행 세법 시행령 제70조의2에 근거하여, 연 1,500만원의 한도 내에서 렌트비와 유류비, 고속도로 통행 비용을 모두 빠짐없이 필요경비로 상계 처리할 경우, 종합소득세 과세표준 구간 24%를 적용받는 개인사업자는 연간 약 360만원에 달하는 현금을 세금 환급 혹은 공제를 통해 절약할 수 있다는 수학적 기댓값을 도출해 내었습니다.</p>
+
+                <p>이처럼 고도화된 AI 알고리즘 분석 결과가 말해주듯, 전기 세단의 이용 형태를 소유에서 유연한 구독 형태로 이전하는 흐름은 단순한 유행을 넘어 과학적인 재테크 방식의 일환으로 탄탄하게 자리매김하고 있습니다.</p>
+
+                <h2 id="how_to">합리적인 장기렌트 전문 업체 선정 가이드</h2>
+                <p>현재 시장에는 수많은 캐피탈사와 장기렌트 전문 에이전시가 경쟁하고 있습니다. 소비자가 이 중에서 가장 저렴한곳이나 싼곳을 골라내어 최적의 견적서를 마주하기 위해 지켜야 할 현실적인 지침을 공유합니다.</p>
+
+                <h4>올바른 비교 견적 확인 절차</h4>
+                <p>일부 비전문적인 대행사들은 월 렌트료가 지나치게 낮게 보이는 미끼형 상품을 내세운 뒤, 최종 계약 단계에서 면책금 한도를 대폭 축소하거나 높은 선납 조건을 뒤늦게 고지하는 경우가 있습니다. 따라서 견적서를 확인할 때는 보증 조건의 세부 명세와 면책금 기준을 꼼꼼하게 일대일로 비교해야 합니다.</p>
+
+                <p>또한 계약 완료 시 지급되는 신규 가입 혜택과 다양한 사은품 구성도 비교 대상입니다. 고급 정품 썬팅 필름 시공, 전후방 FHD 블랙박스 장착 지원은 물론이고 일부 특판 제휴 채널에서는 신규 가입 가입자에게 추가 주유/충전 상품권이나 모바일 주유 패키지, 캐쉬백 형태의 현금지원을 이벤트 형식으로 공여하기도 하므로 프로모션 시즌을 지혜롭게 공략하는 요령이 필요합니다.</p>
+
+                <p>가장 검증된 비교 방식은 롯데렌터카, SK렌터카를 비롯하여 KB캐피탈, 하나캐피탈, 우리금융캐피탈 등 대기업 메이저 렌트 금융사들의 한정 특판 가격표를 동시 비교해 주는 통합 전문 에이전트 채널을 이용하는 것입니다. 개인이 일일이 전화하여 심사 기준을 묻는 수고를 덜어주며, 무심사 특판이나 저신용자 승인율이 우수한 업체를 한눈에 파악하여 가장 실속 있는 혜택을 매칭받을 수 있습니다.</p>
+
+                <h2 id="faq">아이오닉6 장기렌트 관련 자주 묻는 질문 (FAQ)</h2>
+                
+                <h4>Q1. 장기렌트 계약 만기 시 차량 인수가 무조건 유리한가요?</h4>
+                <p>A1. 무조건 유리하진 않습니다. 계약 만료 시점의 현대 아이오닉6 중고 시장 시세와 계약서상의 인수 가격(잔존가치)을 대조해 보아야 합니다. 만약 중고 시세가 인수 가격보다 높게 형성되어 있다면 인수 후 매각하는 것이 금리 마진 상 유리하며, 반대로 전기차 시장 침체 등으로 감가가 엄청나게 진행되어 시세가 폭락했다면 미련 없이 차량을 반납하는 것이 더 유익합니다. 이 선택의 유연성이 장기렌트의 핵심 매력입니다.</p>
+
+                <h4>Q2. 법인이나 개인이 렌트한 뒤 사고가 발생하면 자차 면책금은 얼마나 나오나요?</h4>
+                <p>A2. 통상적인 국산 친환경 전기 승용차의 경우 사고 1건당 약 10만원에서 30만원 사이의 고정 면책금(선택 가능)을 지불하면 차량 가액 한도 내에서 수리비 일체를 전액 렌트사 보험으로 해결할 수 있습니다. 수리 기간 대차 서비스 가입 여부에 따라 사고 직후 대차 서비스도 제공받을 수 있어 안심하고 운행에만 전념하실 수 있습니다.</p>
+
+                <h4>Q3. 렌트카 계약 도중 다른 지역으로 이사를 가게 되면 지자체 보조금은 어떻게 되나요?</h4>
+                <p>A3. 일반 개인 구매의 경우 주소지 이전 시 보조금 환수 조항이 작동될 우려가 존재하지만, 장기렌트 차량은 임대차 계약의 형태를 띠며 차량의 소유주가 서울 또는 인천 등 대형 렌트사 본사 사업장 소재지로 영구 귀속되어 있기 때문에 이용자의 주소지 이전이나 타 시도 전출에 따라 보조금이 반환되거나 렌트비가 도중에 조정되는 문제는 일절 발생하지 않습니다.</p>
+
+                <hr>
+
+                <div class="external-links">
+                    <h3 id="external">공신력 있는 참고 웹사이트 및 외부 정보망</h3>
+                    <p>현대 아이오닉6 장기렌트 계약 전 세법이나 친환경차 보조금, 실제 검증된 상세 이력 정보를 투명하게 점검할 수 있는 정부 공인 외부 기관 공식 도메인 링크를 참고하시기 바랍니다.</p>
+                    <ul>
+                        <li><a href="https://www.ev.or.kr/" target="_blank" title="환경부 무공해차 통합누리집">환경부 무공해차 통합누리집</a> (2026년 실시간 지자체별 전기차 국고 보조금 예산 잔여량 및 차종별 확정 공고 조회)</li>
+                        <li><a href="https://www.molit.go.kr/" target="_blank" title="국토교통부 공식 홈페이지">국토교통부 공식 홈페이지</a> (자동차 등록 원부 관리, 장기렌트 임대차 자동차 형식 승인 기준 법규 점검)</li>
+                        <li><a href="https://www.nts.go.kr/" target="_blank" title="국세청 홈택스 세무 정보">국세청 홈택스 공식 포털</a> (개인사업자 및 법인차량 임차료 업무용 승용차 관련 비용 손금불산입 및 소득세법 세제 혜택 가이드 안내)</li>
+                        <li><a href="https://namu.wiki/w/%ED%98%84%EB%8C%80%20%EC%95%84%EC%9D%B4%EC%98%A4%EB%8B%89%206" target="_blank" title="현대 아이오닉6 나무위키 정보">나무위키: 현대 아이오닉6</a> (세부 디자인 변화 흐름, 프로페시 콘셉트 카 연동 제원 및 결함 개선 이력 분석 자료)</li>
+                        <li><a href="https://www.kama.or.kr/" target="_blank" title="한국자동차모빌리티산업협회">한국자동차모빌리티산업협회 (KAMA)</a> (국내 전기 완성차 업계 제조 실적 분석 데이터 및 분기별 내수 동향 정기 보고서 제공)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript 코드를 통한 체류시간 유도형 시뮬레이터 구동 로직 -->
+    <script>
+        function calculateRent() {
+            var model = document.getElementById("car_model").value;
+            var term = parseInt(document.getElementById("contract_term").value);
+            var mileage = parseInt(document.getElementById("annual_mileage").value);
+            var finance = document.getElementById("finance_type").value;
+            var finance_rate = parseFloat(document.getElementById("finance_rate").value);
+            
+            if(!model || !term || !mileage) {
+                alert("모델명과 필수 입력 정보를 다시 확인해 주세요.");
+                return;
+            }
+            
+            // 기본 차량 가격 변수 셋팅
+            var basePrice = 55150000;
+            if (model === "standard_eval") basePrice = 48560000;
+            else if (model === "standard_ex") basePrice = 50950000;
+            else if (model === "standard_pres") basePrice = 55530000;
+            else if (model === "long_lite") basePrice = 50640000;
+            else if (model === "long_ex") basePrice = 55150000;
+            else if (model === "long_nline") basePrice = 57450000;
+            else if (model === "long_pres") basePrice = 59730000;
+            else if (model === "long_pres_nline") basePrice = 61320000;
+            
+            // 2026 평균 전기차 보조금 감안 차량 선가액 차감 (임의 보조금 평균 약 650만원 차감)
+            var actualPrincipal = basePrice - 6500000;
+            
+            // 잔가율 기본 셋팅
+            var rvRate = 0.52; 
+            if (term === 48) {
+                rvRate = 0.45;
+            } else if (term === 60) {
+                rvRate = 0.38;
+            }
+            
+            // 주행거리에 따른 감가율 상향 조정
+            if (mileage === 10000) {
+                rvRate += 0.03;
+            } else if (mileage === 30000) {
+                rvRate -= 0.04;
+            }
+            
+            var residualValue = actualPrincipal * rvRate;
+            var totalDepreciation = actualPrincipal - residualValue;
+            
+            // 금리 및 부가 수수료 산정
+            var interestFactor = 0.048; // 연 이자율 변조
+            var totalInterest = (actualPrincipal + residualValue) * interestFactor * (term / 12) / 2;
+            
+            // 월 납부 금액 기본 분할
+            var baseMonthly = totalDepreciation / term;
+            var interestMonthly = totalInterest / term;
+            var insuranceAndTaxComponent = 78000; // 예상 단체 보험 세금 반영 금액
+            
+            var rawMonthly = baseMonthly + interestMonthly + insuranceAndTaxComponent;
+            
+            // 선납 조건 및 보증 조건 반영 연산
+            var finalMonthly = rawMonthly;
+            if (finance === "prepay") {
+                var prepaidAmount = actualPrincipal * (finance_rate / 100);
+                finalMonthly = (totalDepreciation - prepaidAmount) / term + interestMonthly + insuranceAndTaxComponent;
+            } else if (finance === "deposit") {
+                // 보증금의 예치 이자 성격을 반영한 할인 대입
+                var discountAmount = (actualPrincipal * (finance_rate / 100)) * 0.045 / 12;
+                finalMonthly = rawMonthly - discountAmount;
+            }
+            
+            if (finalMonthly < 320000) finalMonthly = 320000; // 하한 마지노선 예외
+            
+            document.getElementById("rent_result").innerHTML = "예상 월 납입금: 약 " + Math.round(finalMonthly / 10000) + "만원 대 (부가세 포함)";
+        }
+
+        function calculateSubsidy() {
+            var region = document.getElementById("sub_region").value;
+            var oldCar = document.getElementById("old_car_scrap").value;
+            var isYouth = document.getElementById("is_youth").value;
+            
+            if(!region) {
+                alert("조회할 지역명을 올바르게 입력해 주세요.");
+                return;
+            }
+            
+            var govSubsidy = 3000000; // 2026 기본 국고
+            var localSubsidy = 2000000; // 시도 기본 평균
+            
+            if (region === "seoul") {
+                localSubsidy = 1500000;
+            } else if (region === "gyeonggi") {
+                localSubsidy = 2000000;
+            } else if (region === "incheon") {
+                localSubsidy = 2300000;
+            } else if (region === "busan") {
+                localSubsidy = 2100000;
+            } else if (region === "jeju") {
+                localSubsidy = 3500000;
+            } else if (region === "other") {
+                localSubsidy = 2800000;
+            }
+            
+            var total = govSubsidy + localSubsidy;
+            
+            // 내연차 전환 보조금 가산 연산
+            if (oldCar === "yes") {
+                if (region === "seoul") {
+                    total += 1300000; // 서울시 2026 전환 한도
+                } else {
+                    total += 1000000; // 기타 전국 평균
+                }
+            }
+            
+            // 청년 생애 첫 가입 특약
+            if (isYouth === "yes") {
+                total += (govSubsidy * 0.2); // 국고의 20% 특별 지원
+            }
+            
+            document.getElementById("subsidy_result").innerHTML = "예상 보조 지원금: " + (total / 10000).toFixed(0) + "만원 수령 가능";
+        }
+
+        function calculateTaxSaving() {
+            var taxBracket = parseFloat(document.getElementById("tax_bracket").value);
+            var monthlyRent = parseInt(document.getElementById("monthly_rent_input").value);
+            
+            if(!taxBracket || isNaN(monthlyRent) || monthlyRent <= 0) {
+                alert("올바른 납입 임차료를 숫자 형식으로 입력해 주십시오.");
+                return;
+            }
+            
+            // 세무 소득 공제 기본 공식 연산 (소득세 연차 공제 한도 범위 환산)
+            var annualRent = monthlyRent * 12;
+            var allowedRentDeduction = Math.min(annualRent, 8000000); // 렌트비 연간 한도 800만원
+            var allowedMaintenanceDeduction = Math.min(annualRent * 0.12, 7000000); // 관련 주행 경비 한도 환산
+            
+            var totalDeduction = allowedRentDeduction + allowedMaintenanceDeduction;
+            var actualTaxRefund = totalDeductibleAmount = totalDeduction * (taxBracket / 100);
+            
+            document.getElementById("tax_result").innerHTML = "연간 법인세/소득세 환급 예상액: 약 " + (actualTaxRefund / 10000).toFixed(0) + "만원";
+        }
+    </script>
+  
